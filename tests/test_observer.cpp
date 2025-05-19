@@ -1,5 +1,5 @@
 #include <gtest/gtest.h>
-#include "Observer.h"
+#include "observer.h"
 
 class MockObserver : public Observer {
 public:
