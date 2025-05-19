@@ -1,7 +1,7 @@
 #ifndef WEATHERDATA_H
 #define WEATHERDATA_H
 
-#include "Subject.h"
+#include "subject.h"
 
 class WeatherData : public Subject {
 private:
