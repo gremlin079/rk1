@@ -1,9 +1,12 @@
 #include <iostream>
+#include "weatherData.h"
 
-using namespace std;
-
-int main()
-{
-    cout << "Hello World!" << endl;
+int main() {
+    WeatherData station;
+    Observer display;
+    
+    station.registerObserver(display);
+    std::cout << "Observer registered successfully!" << std::endl;
+    
     return 0;
 }
