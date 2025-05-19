@@ -1,4 +1,4 @@
-#include "ConcreteObserver.h"
+#include "concreteObserver.h"
 #include <iostream>
 
 ConcreteObserver::ConcreteObserver(const std::string& name, WeatherData* subject)
