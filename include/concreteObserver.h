@@ -1,8 +1,8 @@
 #ifndef CONCRETE_OBSERVER_H
 #define CONCRETE_OBSERVER_H
 
-#include "Observer.h"
-#include "WeatherData.h"
+#include "observer.h"
+#include "weatherData.h"
 #include <string>
 
 class ConcreteObserver : public Observer {
