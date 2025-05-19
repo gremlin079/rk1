@@ -1,4 +1,4 @@
-#include "WeatherData.h"
+#include "weatherData.h"
 
 void WeatherData::registerObserver(Observer* o) {
     observers.push_back(o);
