@@ -1,16 +1,22 @@
 #ifndef WEATHERDATA_H
 #define WEATHERDATA_H
-#include "subject.h"
-#include "observer.h"
-#include <vector>
 
-class WeatherData : Subject
-{
-    std::vector<Observer> observers;
+#include "Subject.h"
+
+class WeatherData : public Subject {
+private:
+    float temperature;
+    float humidity;
+    float pressure;
+
 public:
-    void  registerObserver(Observer o);
-    void  removeObserver(Observer o);
-    void  notifyObservers();
+    void setMeasurements(float temp, float hum, float press);
+    float getTemperature() const;
+    float getHumidity() const;
+    float getPressure() const;
+    void registerObserver(Observer* o) override;
+    void removeObserver(Observer* o) override;
+    void notifyObservers() override;
 };
 
 #endif // WEATHERDATA_H
