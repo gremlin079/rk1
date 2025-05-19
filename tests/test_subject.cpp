@@ -1,6 +1,6 @@
 #include <gtest/gtest.h>
-#include "WeatherData.h"
-#include "Observer.h"
+#include "weatherData.h"
+#include "observer.h"
 
 class MockObserver : public Observer {
 public:
