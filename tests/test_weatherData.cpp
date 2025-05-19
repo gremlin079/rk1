@@ -1,13 +1,17 @@
 #include <gtest/gtest.h>
-#include "../include/weatherData.h"
+#include "WeatherData.h"
+#include "Observer.h"
 
-TEST(WeatherDataTest, Inheritance) {
-    EXPECT_TRUE(std::is_base_of<Subject, WeatherData>::value);
-}
+class MockObserver : public Observer {
+public:
+    bool updated = false;
+    void update() override { updated = true; }
+};
 
-TEST(WeatherDataTest, MethodsCallable) {
-    WeatherData wd;
-    Observer obs;
-    EXPECT_NO_THROW(wd.registerObserver(obs));
-    EXPECT_NO_THROW(wd.notifyObservers()));
+TEST(WeatherDataTest, SetMeasurementsNotifiesObservers) {
+    WeatherData weatherData;
+    MockObserver observer;
+    weatherData.registerObserver(&observer);
+    weatherData.setMeasurements(25.0f, 65.0f, 1013.0f);
+    EXPECT_TRUE(observer.updated);
 }
