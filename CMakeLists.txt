@@ -32,7 +32,7 @@ add_executable(SubjectTest tests/test_subject.cpp)
 target_link_libraries(SubjectTest gtest_main observer_lib)
 add_test(NAME SubjectTest COMMAND SubjectTest)
 
-add_executable(WeatherDataTest tests/test_eatherData.cpp)
+add_executable(WeatherDataTest tests/test_weatherData.cpp)
 target_link_libraries(WeatherDataTest gtest_main observer_lib)
 add_test(NAME WeatherDataTest COMMAND WeatherDataTest)
 
