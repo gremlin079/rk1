@@ -5,10 +5,10 @@ set(CMAKE_CXX_STANDARD 11)
 include_directories(${CMAKE_SOURCE_DIR}/include)
 
 add_library(observer_lib STATIC
-    src/Observer.cpp
-    src/Subject.cpp
-    src/WeatherData.cpp
-    src/ConcreteObserver.cpp
+    src/observer.cpp
+    src/subject.cpp
+    src/weatherData.cpp
+    src/concreteObserver.cpp
 )
 
 add_executable(main src/main.cpp)
@@ -24,19 +24,19 @@ FetchContent_MakeAvailable(googletest)
 
 enable_testing()
 
-add_executable(ObserverTest tests/ObserverTest.cpp)
+add_executable(ObserverTest tests/test_observer.cpp)
 target_link_libraries(ObserverTest gtest_main observer_lib)
 add_test(NAME ObserverTest COMMAND ObserverTest)
 
-add_executable(SubjectTest tests/SubjectTest.cpp)
+add_executable(SubjectTest tests/test_subject.cpp)
 target_link_libraries(SubjectTest gtest_main observer_lib)
 add_test(NAME SubjectTest COMMAND SubjectTest)
 
-add_executable(WeatherDataTest tests/WeatherDataTest.cpp)
+add_executable(WeatherDataTest tests/test_eatherData.cpp)
 target_link_libraries(WeatherDataTest gtest_main observer_lib)
 add_test(NAME WeatherDataTest COMMAND WeatherDataTest)
 
-add_executable(ConcreteObserverTest tests/ConcreteObserverTest.cpp)
+add_executable(ConcreteObserverTest tests/test_concreteObserver.cpp)
 target_link_libraries(ConcreteObserverTest gtest_main observer_lib)
 add_test(NAME ConcreteObserverTest COMMAND ConcreteObserverTest)
 
