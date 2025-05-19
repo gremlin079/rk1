@@ -1,5 +1,5 @@
-#include "WeatherData.h"
-#include "ConcreteObserver.h"
+#include "weatherData.h"
+#include "concreteObserver.h"
 
 int main() {
     WeatherData weatherData;
