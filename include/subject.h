@@ -1,13 +1,18 @@
 #ifndef SUBJECT_H
 #define SUBJECT_H
-#include "observer.h"
 
-class Subject
-{
+#include <vector>
+#include "Observer.h"
+
+class Subject {
+protected:
+    std::vector<Observer*> observers;
+
 public:
-    void virtual registerObserver(Observer o) = 0;
-    void virtual removeObserver(Observer o) = 0;
-    void virtual notifyObservers() = 0;
+    virtual void registerObserver(Observer* o) = 0;
+    virtual void removeObserver(Observer* o) = 0;
+    virtual void notifyObservers() = 0;
+    virtual ~Subject() = default;
 };
 
 #endif // SUBJECT_H
