@@ -1,6 +1,6 @@
 #include <gtest/gtest.h>
-#include "ConcreteObserver.h"
-#include "WeatherData.h"
+#include "concreteObserver.h"
+#include "weatherData.h"
 
 TEST(ConcreteObserverTest, UpdateReceivesData) {
     WeatherData weatherData;
