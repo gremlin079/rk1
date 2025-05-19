@@ -42,3 +42,8 @@ jobs:
       with:
         name: observer-pattern
         path: build/observer-pkg.deb
+  
+    - name: Build with QMake (optional)
+      run: |
+        qmake observer.pro
+        make
