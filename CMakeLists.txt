@@ -1,14 +1,13 @@
-find_package(GTest REQUIRED)
-include(GoogleTest)
+cmake_minimum_required(VERSION 3.10)
+project(ObserverPattern)
 
-add_executable(test_observer test_observer.cpp)
-target_link_libraries(test_observer GTest::GTest GTest::Main)
-gtest_discover_tests(test_observer)
+set(CMAKE_CXX_STANDARD 11)
 
-add_executable(test_subject test_subject.cpp)
-target_link_libraries(test_subject GTest::GTest GTest::Main)
-gtest_discover_tests(test_subject)
+add_library(observer_pattern STATIC src/weatherData.cpp)
+target_include_directories(observer_pattern PUBLIC include)
 
-add_executable(test_weatherData test_weatherData.cpp)
-target_link_libraries(test_weatherData observer_pattern GTest::GTest GTest::Main)
-gtest_discover_tests(test_weatherData)
+add_executable(observer_example src/main.cpp)
+target_link_libraries(observer_example observer_pattern)
+
+enable_testing()
+add_subdirectory(tests)
