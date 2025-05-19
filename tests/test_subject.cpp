@@ -1,7 +1,17 @@
 #include <gtest/gtest.h>
-#include "../include/subject.h"
+#include "WeatherData.h"
+#include "Observer.h"
 
-TEST(SubjectTest, PureVirtual) {
-    EXPECT_TRUE(std::is_abstract<Subject>::value);
-    EXPECT_TRUE(std::is_polymorphic<Subject>::value);
+class MockObserver : public Observer {
+public:
+    bool updated = false;
+    void update() override { updated = true; }
+};
+
+TEST(SubjectTest, RegisterAndNotifyObserver) {
+    WeatherData subject;
+    MockObserver observer;
+    subject.registerObserver(&observer);
+    subject.notifyObservers();
+    EXPECT_TRUE(observer.updated);
 }
